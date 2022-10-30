@@ -25,6 +25,7 @@
         echo "<h3>Quinteto inicial Lakers</h3>";
         echo "<ul>";
         //Mostramos ambas arrays asociativas con un for each.
+        // Devolvera una lista desordenada con la clave de la array como posición y el valor como nombre del jugador 
         foreach ($lakers as $posicion=>$jugador){
             echo "<li>" . $posicion . " -> " . $jugador . '</li>';
         }

@@ -18,7 +18,6 @@
         echo "<ul>";
             if (isset($_GET['envio'])) {
                 
-                //Tuve que ir probando mirando el ejemplo y comprender por que guardaba datos como en una array en el input para que lo mostrase la lista
                 // Foreach que obtendrá los datos añadidos en el input nombres[], los añadirá a otro input con el mismo nombre en hidden
                 // para que almacene los datos que hemos ido enviando y también pueda leerlos el input superior.
                 // Se mostrará los datos del array dentro de una lista  

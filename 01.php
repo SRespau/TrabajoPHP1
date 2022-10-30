@@ -14,7 +14,7 @@
         $telefono = 622343599;
         $email = "emailprueba@gmail.com";
 
-    //1.- Imprimir con print y con echo
+    //1.- Imprimir por pantalla con print y con echo
     //Usando doble comillas
     print("El alumno es: " . $nombre . " " . $apellidos . "<br>    Edad: " . $edad
     . "<br>    Teléfono: " . $telefono . "<br>    Email: " . $email);

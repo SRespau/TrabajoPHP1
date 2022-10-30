@@ -13,7 +13,7 @@
         echo "<h3>Quinteto inicial Lakers</h3>";
         echo "<ul>";
         
-        //a) Mostrando solo los nombres
+        //a) Mostrando solo los nombres por pantalla mediante una lista desordenada con un bucle for
         for($i = 0; $i <= count($lakers) - 1; $i++){
             echo "<li>" . $lakers[$i] . "</li>";
         }
@@ -22,7 +22,7 @@
        
         echo "<h3>Quinteto inicial Bulls</h3>";
         echo "<ul>";
-        //b) Indicando la posición del nombre en el array
+        //b) Indicando la posición del nombre en el array mediante una lista desordenada con un bucle for
         for($i = 0; $i <= count($bulls) - 1; $i++){
             echo "<li> (" . $i . ")" . $bulls[$i] . "</li>";
         }
