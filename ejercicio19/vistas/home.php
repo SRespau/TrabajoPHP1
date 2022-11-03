@@ -34,7 +34,7 @@
     <h3>Mostrando tu lista de deseos:</h3>
     
     <?php
-      // Si la sesion está creada la leerá, decodificará sus valores en json y los añadirá  en una variable array.
+      // Si la cookie está creada la leerá, decodificará sus valores en json y los añadirá  en una variable array.
       // Mostrará la información de la array en forma de lista ordenada.
       if(isset($_COOKIE["listaDeseo"])){        
         echo "<ol>";        
