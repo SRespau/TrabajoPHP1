@@ -2,13 +2,13 @@
 // Clase app de nuestra aplicación donde se añadirán todas las funciones.
 
 class App {
-    // Constructor de nuestra clase donde se creará un objeto que incluirá los siguientes datos:
+    // Funcion constructor: constructor de nuestra clase donde se creará un objeto que incluirá los siguientes datos:
     // name -> nombre aplicación
     public function __construct($name = "Aplicación para lista de deseos"){
       $this->name = $name;
     }
 
-    // Función que obtendrá de la cabecera, con Get, el dato de la función a utilizar y lanzará la función llamada de esta misma clase
+    // Función run: obtendrá de la cabecera, con Get, el dato de la función a utilizar y lanzará la función llamada de esta misma clase
     // Por defecto, si no se le indica ninguna función, utilizará la función index()
     public function run(){
         if (isset($_GET['method'])) {
@@ -19,13 +19,13 @@ class App {
         $this->$method();
     }
 
-    // Función indice: incluirá el código de pagina.php para poder leer las redirecciones a las funciones.
+    // Función index: incluirá el código de pagina.php para poder leer las redirecciones a las funciones.
     public function index(){
        include('vistas/indice.php');
     }
 
 
-    //Función login: Leera los datos de la cookie. Si no está vacio el campo "usuario" devolverá al index, por el contrario, si se encuentra
+    // Función login: Leera los datos de la cookie. Si no está vacio el campo "usuario" devolverá al index, por el contrario, si se encuentra
     // vacio, devolverá de nuevo a la pagina login.php para que se identifique. 
     public function login(){
         //El valor true en json_decode convierte el Objeto en un array asociativo
@@ -36,7 +36,7 @@ class App {
         }        
     }
 
-    //Autenticación: leerá el usuario y contraseña y los incluirá en un array.
+    // Función auth(Autenticación): leerá el usuario y contraseña y los incluirá en un array.
     // Se creará una cookie que durará 1 dia. Se le insertará la array de datos con usuario y contraseña.
     // Al finalizar redirigirá al index.
     public function auth(){
@@ -50,12 +50,12 @@ class App {
         header("Location: ?method=home");
     }
 
-    // Función para visualizar la página home.php. Página con la lista de deseos.
+    // Función home: visualiza la página home.php. Página con la lista de deseos.
     public function home(){       
        include('vistas/home.php');
     }
 
-    // Función para añadir un nuevo elemento a la lista de deseos
+    // Función new:  añade un nuevo elemento a la lista de deseos
     // -Si la cookie con los datos está creada y se ha enviado un deseo obtendrá los datos guardados en la cookie, decodificará los datos en json y los guardará en una array como array asociativa (true)
     //  Leerá el campo de deseo nuevo, lo incluirá en la array, la codificará en json y añadirá la array nueva a la cookie sustituyendo la anterior con los datos nuevos
     // - Si la cookie no está creada comprobará si se ha enviado un deseo nuevo. Posteriormente creará una cookie con ese deseo
@@ -76,7 +76,7 @@ class App {
         header("Location: ?method=home");
         
     }
-    //Funcion para borrar un objeto de la lista por su número de identificativo en la lista ordenada. 
+    //Funcion delete: borra un objeto de la lista por su número de identificativo en la lista ordenada. 
     //Decodificará los datos de la cookie en una array y borrara el valor elegido y reiniciará el index del array
     //Luego sobreescribirá la Cookie creada, codificandola en json.
     //Al finalizar redireccionará a la pagina de home.php
@@ -93,7 +93,7 @@ class App {
         }
     }
 
-    // Función para borrar la lista de deseos entera
+    // Función empty: borra la lista de deseos entera
     // Si la cookie está creada la borrará, eliminando así todos los datos almacenados y redireccionará a home.php
     // Si no está creada porque no ha añadido ningún dato redireccionará a la misma página donde se encontraba
     public function empty(){

@@ -1,7 +1,7 @@
 <?php
 // Clase app de nuestra aplicación donde se añadirán todas las funciones.
     class App {
-        // Constructor de nuestra clase donde se creará un objeto que incluirá los siguientes datos:
+        // Funcion constructor: constructor de nuestra clase donde se creará un objeto que incluirá los siguientes datos:
         // name -> nombre aplicación,  module -> modulo clase   student -> nombre del estudiante
         public function __construct($name = "Aplicación PHP")
         {
@@ -9,7 +9,7 @@
           $this->module = "DAW";
           $this->student = "Sergio Respau";
         }
-        // Función que obtendrá de la cabecera, con Get, el dato de la función a utilizar y lanzará la función llamada de esta misma clase
+        // Función run: obtendrá de la cabecera, con Get, el dato de la función a utilizar y lanzará la función llamada de esta misma clase
         // Por defecto, si no se le indica ninguna función, utilizará la función index()
         public function run()
         {
@@ -20,14 +20,14 @@
           }
           $this->$method();
         }
-        // Función indice: incluirá el código de pagina.php para poder leer las redirecciones a las funciones.
+        // Función index: incluirá el código de pagina.php para poder leer las redirecciones a las funciones.
         public function index(){   
             include('Pagina.php');
         }
-        // Función para calcular y almacenar un array con los números fibonacci anteriores a 1.000.000
+        // Funcion fibonacci: calcula y almacena un array con los números fibonacci anteriores a 1.000.000
         // Mandará la array creada a la función mostrarArray.
         public function fibonacci(){
-            $num = 0;
+                        
             $n1 = 0;
             $n2 = 1;
             $array = [0,1];
@@ -40,7 +40,7 @@
             $this->mostrarArray($array);
         }
 
-        // Función para calcular las potencias del número 2 elevado 24 veces. Lo guardará en una variable array.
+        // Función potencias2: calcula las potencias del número 2 elevado 24 veces. Lo guardará en una variable array.
         // Mandará la array creada a la función mostrarArray.
         public function potencias2(){
             $array = [];
@@ -51,7 +51,7 @@
             $this->mostrarArray($array);
         }
 
-        // Función para calculal los numeros factoriales desde 1 hasta n, de tal manera que el último término sea el más próximo cercano al millón.
+        // Función factorial: calcula los numeros factoriales desde 1 hasta n, de tal manera que el último término sea el más próximo cercano al millón.
         // Eliminará de la array el último número ya que será superior al millon y mandará la array creada a la función mostrarArray.
         public function factorial(){
             $resultado = 1;
@@ -67,7 +67,7 @@
             $this->mostrarArray($array);
         }
 
-        //Función para calcular los números primos hasta 10000
+        // Función primo: calcula los números primos hasta 10000
         // Añarirá los números calculados a una variable array y la mandará a la función mostrarArray
         public function primo(){
             $array = [];
@@ -87,7 +87,7 @@
             $this->mostrarArray($array);
         }
 
-        // Función para mostrar por pantalla las arrays enviadas.
+        // Función mostrarArray: muestra por pantalla las arrays enviadas.
         // Está hecha para que el penúltimo número se le añada la conjunción "y" en vez de una "," y que el último dato obvie la "," de su derecha
         public function mostrarArray($array){
             echo "<hr>";

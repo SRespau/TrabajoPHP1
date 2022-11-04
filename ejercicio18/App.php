@@ -1,7 +1,7 @@
 <?php
 // Clase app de nuestra aplicación donde se añadirán todas las funciones.
 class App {
-    // Constructor de nuestra clase donde se creará un objeto que incluirá los siguientes datos:
+    // Funcion constructor: constructor de nuestra clase donde se creará un objeto que incluirá los siguientes datos:
     // name -> nombre aplicación,  module -> modulo clase   student -> nombre del estudiante
     public function __construct($name = "mi aplicación con Cookies"){
       $this->name = $name;
@@ -9,7 +9,7 @@ class App {
       $this->student = "Sergio Respau";
     }
     
-    // Función que obtendrá de la cabecera, con Get, el dato de la función a utilizar y lanzará la función llamada de esta misma clase
+    // Función run: obtendrá de la cabecera, con Get, el dato de la función a utilizar y lanzará la función llamada de esta misma clase
     // Por defecto, si no se le indica ninguna función, utilizará la función index()
     public function run(){
       if (isset($_GET['method'])) {
@@ -20,12 +20,12 @@ class App {
       $this->$method();
     }
 
-    // Función indice: incluirá el código de pagina.php para poder leer las redirecciones a las funciones.
+    // Función index: incluirá el código de pagina.php para poder leer las redirecciones a las funciones.
     public function index(){
        include('vistas/Pagina.php');
     }
   
-    //Función login: Leera los datos de la cookie. Si no está vacio el campo "usuario" devolverá al index, por el contrario, si se encuentra
+    // Función login: Leera los datos de la cookie. Si no está vacio el campo "usuario" devolverá al index, por el contrario, si se encuentra
     // vacio, devolverá de nuevo a la pagina login.php para que se identifique. 
     public function login(){
         //El valor true en json_decode convierte el Objeto en un array asociativo
@@ -36,7 +36,7 @@ class App {
         }        
     }
 
-    //Autenticación: leerá el usuario y contraseña y los incluirá en un array.
+    // Función auth(Autenticación): leerá el usuario y contraseña y los incluirá en un array.
     // Se creará una cookie que durará 1 dia. Se le insertará la array de datos con usuario y contraseña.
     // Al finalizar redirigirá al index.
     public function auth(){

@@ -1,13 +1,13 @@
 <?php
 // Clase app de nuestra aplicación donde se añadirán todas las funciones.
 class App {
-    // Constructor de nuestra clase donde se creará un objeto que incluirá los siguientes datos:
+    // Funcion constructor: constructor de nuestra clase donde se creará un objeto que incluirá los siguientes datos:
     // name -> nombre aplicación
     public function __construct($name = "Aplicación para lista de deseos"){
       $this->name = $name;
     }
 
-    // Función que obtendrá de la cabecera, con Get, el dato de la función a utilizar y lanzará la función llamada de esta misma clase
+    // Función run: obtendrá de la cabecera, con Get, el dato de la función a utilizar y lanzará la función llamada de esta misma clase
     // Por defecto, si no se le indica ninguna función, utilizará la función index()
     public function run(){
         if (isset($_GET['method'])) {
@@ -18,7 +18,7 @@ class App {
         $this->$method();
     }
 
-    // Función indice: incluirá el código de pagina.php para poder leer las redirecciones a las funciones.
+    // Función index: incluirá el código de pagina.php para poder leer las redirecciones a las funciones.
     public function index(){
        include('vistas/indice.php');
     }
@@ -35,7 +35,7 @@ class App {
         }        
     }
     
-    //Autenticación: leerá el usuario y contraseña y los incluirá en un array.
+    // Función auth(Autenticación): leerá el usuario y contraseña y los incluirá en un array.
     // Se creará una cookie que durará 1 dia. Se le insertará la array de datos con usuario y contraseña.
     // Al finalizar redirigirá al index.
     public function auth(){
@@ -49,12 +49,12 @@ class App {
         header("Location: ?method=home");
     }
 
-    // Función para visualizar la página home.php. Página con la lista de deseos.
+    // Función home: visualiza la página home.php. Página con la lista de deseos.
     public function home(){       
        include('vistas/home.php');
     }
 
-    // Función para añadir un nuevo elemento a la lista de deseos
+    // Función new: añade un nuevo elemento a la lista de deseos
     // Crearemos o nos añadiremos a la sesión actual activa, dependiendo la situación de la que proceda.
     // -Si la sesion con los datos está creada y se ha enviado un deseo obtendrá los datos guardados en la sesion, decodificará los datos en json y los guardará en una array como array asociativa (true)
     //  Leerá el campo de deseo nuevo, lo incluirá en la array, lo codificará en json y añadirá la array nueva a la sesion sustituyendo los datos anteriores
@@ -76,7 +76,7 @@ class App {
         
     }
 
-    //Funcion para borrar un objeto de la lista por su número de identificativo en la lista ordenada.
+    //Funcion delete: borra un objeto de la lista por su número de identificativo en la lista ordenada.
     // Nos añadiremos a la sesión actual activa, dependiendo la situación de la que proceda. 
     //Decodificará los datos de la sesión en una array, borrara el valor elegido y reiniciará el index del array
     //Se codifican los datos en json y se añadirán a la sesion sobreescribiendo los datos de la sesión por los nuevos
@@ -96,7 +96,7 @@ class App {
         }
     }
 
-    // Función para borrar la lista de deseos entera
+    // Función empty: borra la lista de deseos entera
     // Si la sesion está creada sobrescribirá la array "listaDeseo" por una array vacía, borrando así los valores guardados.
     // Si no está creada porque no ha añadido ningún dato redireccionará a la misma página donde se encontraba
     public function empty(){
